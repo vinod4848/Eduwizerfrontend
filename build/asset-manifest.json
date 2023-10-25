@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.15a271da.css",
+    "main.js": "/static/js/main.5d595a5b.js",
+    "static/js/787.cc574afd.chunk.js": "/static/js/787.cc574afd.chunk.js",
+    "static/media/image356.png": "/static/media/image356.96594ba61aeba8e74dbc.png",
+    "static/media/subscribe.png": "/static/media/subscribe.6ec8a194cab5a7958fbb.png",
+    "static/media/background1@1x.png": "/static/media/background1@1x.7168d6f4557253daa695.png",
+    "static/media/signup-bg.png": "/static/media/signup-bg.47a938df70d5cb8964a3.png",
+    "static/media/otp-bg.png": "/static/media/otp-bg.9f7bdb8289993bda6378.png",
+    "static/media/login-bg.png": "/static/media/login-bg.0b5332e990a8527bc8cc.png",
+    "static/media/uploadcv-bg.png": "/static/media/uploadcv-bg.31575c7ff819d308f895.png",
+    "static/media/package-bg.png": "/static/media/package-bg.fa8e22e45928621b02da.png",
+    "static/media/Footer-Logo.svg": "/static/media/Footer-Logo.378de601513e64a5401175629a647435.svg",
+    "static/media/image352.png": "/static/media/image352.c94fc09a22be3d42a795.png",
+    "static/media/logo.svg": "/static/media/logo.7f0ef444ac88bca1551406c8820a266d.svg",
+    "static/media/instagram.svg": "/static/media/instagram.bef9a69a843725e338fdd3cd3f799607.svg",
+    "static/media/LinkedIn_icon_circle.svg": "/static/media/LinkedIn_icon_circle.8103de5e924dcb5232690c6a1666da49.svg",
+    "index.html": "/index.html",
+    "static/media/facebook.svg": "/static/media/facebook.ef403e8f2de4cdcc1c23a4cca743139a.svg",
+    "static/media/message-us-yellow-bg.svg": "/static/media/message-us-yellow-bg.3f0b9a3b1beeddd187a5.svg",
+    "static/media/plus.svg": "/static/media/plus.d2b73c83504ea596fcc5.svg",
+    "static/media/minus.svg": "/static/media/minus.e8a7401b1542ae28c44f.svg",
+    "main.15a271da.css.map": "/static/css/main.15a271da.css.map",
+    "main.5d595a5b.js.map": "/static/js/main.5d595a5b.js.map",
+    "787.cc574afd.chunk.js.map": "/static/js/787.cc574afd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15a271da.css",
+    "static/js/main.5d595a5b.js"
+  ]
+}
