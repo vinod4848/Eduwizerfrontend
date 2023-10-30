@@ -29,6 +29,7 @@ import {
 import CustomLoadingAnimation from "../Common/CustomLoadingAnimation";
 import CustomToast from "../Common/CustomToast";
 import UploadFile from "./UploadFile";
+import { Label } from "reactstrap";
 
 const Signup = () => {
   const MySwal = withReactContent(Swal);
@@ -116,6 +117,7 @@ const Signup = () => {
       "password",
       "email",
       "url",
+      "resume",
       "fileType",
       "phone",
       "pincode",
@@ -134,6 +136,7 @@ const Signup = () => {
       "password",
       "email",
       "url",
+      "resume",
       "fileType",
       "phone",
       "pincode",
@@ -150,6 +153,7 @@ const Signup = () => {
       "password",
       "email",
       "url",
+      "resume",
       "fileType",
       "phone",
       "pincode",
@@ -166,6 +170,7 @@ const Signup = () => {
       "password",
       "email",
       "url",
+      "resume",
       "fileType",
       "phone",
       "pincode",
@@ -184,6 +189,7 @@ const Signup = () => {
       "password",
       "email",
       "url",
+      "resume",
       "fileType",
       "phone",
       "pincode",
@@ -265,6 +271,10 @@ const Signup = () => {
     if (!values.url) {
       errors.url = "Required";
     }
+    if (!values.resume) {
+      errors.resume = "Required";
+    }
+
     if (!values.preference) {
       errors.preference = "Required";
     }
@@ -306,6 +316,7 @@ const Signup = () => {
       password: "",
       email: "",
       url: "",
+      resume: "",
       fileType: "",
       phone: "",
       pincode: "",
@@ -431,6 +442,7 @@ const Signup = () => {
                     )}
                     {signupTypeAndFieldsMappings[type].includes("url") && (
                       <div className="col-12 col-md-12 col-lg-6 text-center d-flex align-items-center mt-4">
+                        <Label> Upload Profile</Label>
                         <UploadFile
                           accept=".png,.jpg,.jpeg,.mp4,.avi,.mov,.wmv,.flv,.webm,.mkv,.ogg,.ogv,.youtube"
                           editData={{
@@ -451,6 +463,41 @@ const Signup = () => {
                           <label className="color-red">
                             Upload an image smaller than 1 MB | Image format
                             should be [.png, .jpg, or .jpeg]
+                          </label>
+                        )}
+                      </div>
+                    )}
+                    {signupTypeAndFieldsMappings[type].includes("resume") && (
+                      <div className="col-12 col-md-12 col-lg-6 text-center d-flex align-items-center mt-4">
+                        <Label> Upload Resume</Label>
+                        <UploadFile
+                          accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                          editData={{
+                            resume: values.resume,
+                            fileType: values.fileType,
+                          }}
+                          uploadFileProp={(file, resume, fileType) => {
+                            const allowedTypes = [
+                              "application/pdf",
+                              "application/msword",
+                              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            ];
+                            if (
+                              allowedTypes.includes(file.type) &&
+                              file.size < 1024 * 1024
+                            ) {
+                              setFieldValue("resume", resume);
+                              setFieldValue("fileType", fileType);
+                            }
+                          }}
+                        />
+                        <div className="color-red">
+                          {errors.resume && touched.resume && errors.resume}
+                        </div>
+                        {values.resume && values.resume.size < 1024 * 1024 && (
+                          <label className="color-red">
+                            Upload a file smaller than 1 MB | File format should
+                            be [.pdf, .doc, or .docx]
                           </label>
                         )}
                       </div>
