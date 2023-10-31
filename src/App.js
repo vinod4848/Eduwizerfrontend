@@ -92,7 +92,7 @@ function App() {
               </Protected>
             }
           />
-         
+
           <Route
             path="vendorpackageselection"
             element={
@@ -120,14 +120,15 @@ function App() {
             }
           />
 
-          <Route
-            path="uploadcv"
+          {/* <Route
+            path="/dashboard"
+            exact
             element={
-              // <Protected isLoggedIn={loginData}>
-              <UploadCV />
-              // </Protected>
+              <Protected isLoggedIn={loginData}>
+                <UserDashboard />
+              </Protected>
             }
-          />
+          /> */}
           <Route
             path="events"
             element={

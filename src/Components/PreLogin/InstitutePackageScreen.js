@@ -30,7 +30,7 @@ const InstitutePackageScreen = () => {
   const continueToPayment = (values) => {
     return new Promise((resolve, reject) => {
       console.log("calling payment function", values);
-      navigate("/uploadcv");
+      navigate("/dashboard");
       resolve();
     });
   };

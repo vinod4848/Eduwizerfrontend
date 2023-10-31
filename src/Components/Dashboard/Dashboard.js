@@ -586,21 +586,21 @@ const Dashboard = () => {
         <div className="col-md-3 col-lg-3 px-4">
           <div className="border-custom p-2">
             <div className="col-12 text-center font-weight-bold">
-            {profileData?.url ? (
-                    <img
-                      src={profileData?.url}
-                      alt="image"
-                      width="80%"
-                      className="img-fluid m-2 rounded-circle"
-                    />
-                  ) : (
-                    <img
-                      src="http://localhost:3001/static/media/Footer-Logo.09843b48550aea11a6428bad1a242dc0.svg"
-                      alt="sample image"
-                      width="80%"
-                      className="img-fluid m-2 rounded-circle"
-                    />
-                  )}
+              {profileData?.url ? (
+                <img
+                  src={profileData?.url}
+                  alt="image"
+                  width="80%"
+                  className="img-fluid m-2 rounded-circle"
+                />
+              ) : (
+                <img
+                  src="http://localhost:3001/static/media/Footer-Logo.09843b48550aea11a6428bad1a242dc0.svg"
+                  alt="sample image"
+                  width="80%"
+                  className="img-fluid m-2 rounded-circle"
+                />
+              )}
             </div>
             <div className="col-12 text-center font-weight-bold">
               {profileData?.firstName} {profileData?.lastName}
@@ -915,29 +915,35 @@ const Dashboard = () => {
                         )}
                         {userTypeAndFieldsMappings[type].includes("url") && (
                           <>
-                          
-                          <div className="col-12 col-md-6 col-lg-4 mt-5 d-flex align-items-center">
-                            
-                            <UploadFile
-                              accept=".png,.jpg,.jpeg,.mp4,.avi,.mov,.wmv,.flv,.webm,.mkv,.ogg,.ogv,.youtube"
-                              editData={{
-                                url: values.url,
-                                fileType: values.fileType,
-                              }}
-                              uploadFileProp={(file, url, fileType) => {
-                                setFieldValue("url", url);
-                                setFieldValue("fileType", fileType);
-                              }}
-                            />
-                            <div className="color-red">
-                              {errors.url && touched.url && errors.url}
+                            <div className="col-12 col-md-6 col-lg-4 mt-5 d-flex align-items-center">
+                              <UploadFile
+                                accept=".png,.jpg,.jpeg,.mp4,.avi,.mov,.wmv,.flv,.webm,.mkv,.ogg,.ogv,.youtube"
+                                editData={{
+                                  url: values.url,
+                                  fileType: values.fileType,
+                                }}
+                                uploadFileProp={(file, url, fileType) => {
+                                  setFieldValue("url", url);
+                                  setFieldValue("fileType", fileType);
+                                }}
+                              />
+                              <div className="color-red">
+                                {errors.url && touched.url && errors.url}
+                                {values.url &&
+                                  values.url.length > 1048576 &&
+                                  "Upload an image smaller than 1 MB."}
+                              </div>
                             </div>
-                          </div>
-                          <div className="d-flex justify-content-end">
-                          <label className="color-red">Upload and image smaller than 1 MB | Image Format Should be [.png, .jpg or .jpeg]</label>
-                          </div>
+                            {values.url && values.url.length <= 1048576 && (
+                              <div className="d-flex justify-content-end">
+                                <label className="color-red">
+                                  Image Format Should be [.png, .jpg, or .jpeg]
+                                </label>
+                              </div>
+                            )}
                           </>
                         )}
+
                         {userTypeAndFieldsMappings[type].includes(
                           "category"
                         ) && (
@@ -1839,9 +1845,7 @@ const Dashboard = () => {
                             </div>
                           </div>
                         )}
-                         {userTypeAndFieldsMappings[type].includes(
-                          "state"
-                        ) && (
+                        {userTypeAndFieldsMappings[type].includes("state") && (
                           <div className="col-12 col-md-6 col-lg-4 mt-3">
                             <FormControl
                               sx={{ m: 1, width: "36ch" }}
@@ -1897,9 +1901,7 @@ const Dashboard = () => {
                               />
                             </FormControl>
                             <div className="color-red">
-                              {errors.state &&
-                                touched.state &&
-                                errors.state}
+                              {errors.state && touched.state && errors.state}
                             </div>
                           </div>
                         )}

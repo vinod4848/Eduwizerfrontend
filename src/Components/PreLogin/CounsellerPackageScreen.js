@@ -8,7 +8,7 @@ const CounsellerPackageScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [packages, setPackages] = useState([]);
-  console.log(packages, "packs")
+  console.log(packages, "packs");
   const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const CounsellerPackageScreen = () => {
         setLoading(false); // Data has been fetched, set loading to false
       })
       .catch((error) => {
-        console.error('Error fetching packages for counsellors:', error);
+        console.error("Error fetching packages for counsellors:", error);
         setLoading(false); // Set loading to false in case of an error
       });
   }, []);
@@ -30,7 +30,7 @@ const CounsellerPackageScreen = () => {
   const continueToPayment = (values) => {
     return new Promise((resolve, reject) => {
       console.log("calling payment function", values);
-      navigate("/uploadcv");
+      navigate("/dashboard");
       resolve();
     });
   };
@@ -47,21 +47,28 @@ const CounsellerPackageScreen = () => {
               <CircularProgress /> // Display a loading indicator while fetching data
             ) : (
               <div className="package-box p-5 row ">
-              <div className="col-12 font-weight-bold">Job Seeker Package</div>
-              <div className="col-12">Actual Prize {packages[0].prize}</div>
-              <div className="col-12 font-weight-bold">
-                {/* <span className="text-decoration-line-through">{packages[0].prize}</span> */}
-                {/* <span>Rs. 2999</span> */}
-                <span> Special Prize {packages[0].specialPrize}</span>
+                <div className="col-12 font-weight-bold">
+                  Job Seeker Package
+                </div>
+                <div className="col-12">Actual Prize {packages[0].prize}</div>
+                <div className="col-12 font-weight-bold">
+                  {/* <span className="text-decoration-line-through">{packages[0].prize}</span> */}
+                  {/* <span>Rs. 2999</span> */}
+                  <span> Special Prize {packages[0].specialPrize}</span>
+                </div>
+                <div className="col-12">per user per year</div>
               </div>
-              <div className="col-12">per user per year</div>
-            </div>
             )}
             {/* box */}
           </div>
           <div className="col-12 text-center" style={{ margin: "6rem 0 0 0" }}>
             <FormControl sx={{ m: 1, width: "36ch" }} variant="outlined">
-              <Button type="submit" variant="outlined" size="large" className="m-btn">
+              <Button
+                type="submit"
+                variant="outlined"
+                size="large"
+                className="m-btn"
+              >
                 Continue
               </Button>
             </FormControl>
