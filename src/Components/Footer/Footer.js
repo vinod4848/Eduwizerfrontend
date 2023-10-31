@@ -25,6 +25,44 @@ const Footer = () => {
   }, []);
 
   const isMobile = width <= 768;
+  useEffect(() => {
+    const script1 = document.createElement("script");
+    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-EZ4CWQ65GF";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement("script");
+    script2.innerHTML = `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-EZ4CWQ65GF');`;
+    document.body.appendChild(script2);
+
+    const script3 = document.createElement("script");
+    script3.src = "https://www.googletagmanager.com/gtag/js?id=UA-287933216-1";
+    script3.async = true;
+    document.body.appendChild(script3);
+
+    const script4 = document.createElement("script");
+    script4.innerHTML = `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-287933216-1');`;
+    document.body.appendChild(script4);
+
+    const script5 = document.createElement("script");
+    script5.src = "https://www.googletagmanager.com/gtag/js?id=G-7N17D246M7";
+    script5.async = true;
+    document.body.appendChild(script5);
+
+    const script6 = document.createElement("script");
+    script6.innerHTML = `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-7N17D246M7');`;
+    document.body.appendChild(script6);
+
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+      document.body.removeChild(script3);
+      document.body.removeChild(script4);
+      document.body.removeChild(script5);
+      document.body.removeChild(script6);
+    };
+  }, []);
+
   return (
     <footer>
       {isMobile ? (
@@ -55,7 +93,9 @@ const Footer = () => {
               <div className="footer-links" style={{ marginTop: "-35%" }}>
                 <div className="footer-links-head">Quick Links</div>
                 <div className="footer-links-content">
-                  <a href="/infrastructure-search/financialLoanServices">Infrastructure</a>
+                  <a href="/infrastructure-search/financialLoanServices">
+                    Infrastructure
+                  </a>
                   <a onClick={() => navigate("/career-counselling/career")}>
                     Career Counselling
                   </a>
@@ -170,7 +210,9 @@ const Footer = () => {
               <div className="footer-links">
                 <div className="footer-links-head">Quick Links</div>
                 <div className="footer-links-content">
-                  <a href="/infrastructure-search/financialLoanServices">Infrastructure</a>
+                  <a href="/infrastructure-search/financialLoanServices">
+                    Infrastructure
+                  </a>
                   <a onClick={() => navigate("/career-counselling/career")}>
                     Career Counselling
                   </a>
