@@ -43,7 +43,6 @@ const Login = () => {
     });
   };
 
-
   const [width, setWidth] = useState(window.innerWidth);
 
   function handleWindowSizeChange() {
@@ -63,8 +62,8 @@ const Login = () => {
       setLoading(true);
       const loginResp = await login(values);
       if (loginResp?.data?.success) {
-        if (loginResp?.data?.data?.userType === 'institute') {
-          showRecruiterAlert()
+        if (loginResp?.data?.data?.userType === "institute") {
+          showRecruiterAlert();
         } else {
           dispatch(loginData(loginResp.data.session));
           navigate("/");
@@ -86,7 +85,10 @@ const Login = () => {
   };
 
   return (
-    <div className="d-flex align-items-center login-with-bg" style={{ height: "60vh" }}>
+    <div
+      className="d-flex align-items-center login-with-bg"
+      style={{ height: "60vh" }}
+    >
       <div className="container-fluid row py-5">
         <div className="col-12">
           <Formik
@@ -130,7 +132,7 @@ const Login = () => {
                       sx={{ m: 1, width: isMobile ? "100%" : "36ch" }}
                       variant="outlined"
                     >
-                      <InputLabel>Username</InputLabel>
+                      <InputLabel>Email</InputLabel>
                       <OutlinedInput
                         id="outlined-adornment-username"
                         type="text"

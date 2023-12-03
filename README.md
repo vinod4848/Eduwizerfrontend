@@ -68,3 +68,132 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<!-- <section className="home-about-rating no-side-gap no-bottom-gap scroll-section left mb-3">
+        <div
+          className={
+            isMobile
+              ? "section-head section-head-mobile scroll-head"
+              : "section-head scroll-head"
+          }
+        >
+          <h2 className="fs-2.5">See What They Say About Us</h2>
+          {/* <Button className="m-btn right">
+            <div className="btn-text fs-1.5">View All</div>
+          </Button> */}
+        </div>
+        <div
+          className={
+            isMobile ? "section-content scroll-content" : " scroll-content"
+          }
+          style={{
+            height: isMobile ? "500px" : "300px!important",
+            display: "flex",
+          }}
+        >
+          <div className={isMobile ? "d-none" : "fade-out"}></div>
+          <Button
+            style={
+              isMobile
+                ? {
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "white",
+                    top: "125px",
+                    zIndex: "999",
+                    position: "absolute",
+                    left: "30px",
+                    // marginLeft: "20%",
+                  }
+                : {
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "white",
+                    alignSelf: "center",
+                    zIndex: "999",
+                    position: "absolute",
+                    // right: "0",
+                    // marginLeft: "20%",
+                  }
+            }
+            onClick={() => slide3(-100)}
+          >
+            <i className="fa fa-angle-left fa-2x"></i>
+          </Button>
+          <div ref={scrl3} className="scroll-items gap-0.5">
+            {testimonials.map(({ name, rating, description, date, title }) => (
+              <div
+                className="scroll-item truncate-line-clamp d-flex fd-col gap-0.5"
+                style={{ overflowY: "auto" }}
+                key={name}
+              >
+                <div className="scroll-item-head d-flex fd-row gap-1">
+                  {/* <div className="d-flex scroll-item-image">
+                    <img
+                      className="scroll-item-icon"
+                      src={img}
+                      alt={name}
+                    ></img>
+                  </div> */}
+                  <div className="scroll-item-user d-flex fd-col">
+                    <div className="item-name fw-r fs-1.5">{name}</div>
+                    <div className="item-name fw-r fs-1">{title}</div>
+                    <div className="item-rating d-flex fd-row">
+                      {Array.from({ length: rating })
+                        .map((_, e) => (rating - e >= 0 ? true : false))
+                        .map((e, i) => (
+                          <img
+                            key={i}
+                            className={e ? "" : "gray"}
+                            alt=""
+                            src="/assets/images/png/star.png"
+                          />
+                        ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="scroll-item-content d-flex gap-1 fd-col">
+                  <p className="item-desc fs-0.9 c-gray-200">{description}</p>
+                </div>
+                <div className="scroll-item-foot d-flex w-100">
+                  <p className="item-date c-gray-200 fs-1.1">{date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Button
+            style={
+              isMobile
+                ? {
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "white",
+                    top: "125px",
+                    zIndex: "999",
+                    position: "absolute",
+                    right: "30px",
+                    // marginLeft: "20%",
+                  }
+                : {
+                    width: "50px",
+                    height: "50px",
+                    backgroundColor: "white",
+                    alignSelf: "center",
+                    zIndex: "999",
+                    position: "absolute",
+                    right: "17%",
+                  }
+            }
+            onClick={() => slide3(+100)}
+          >
+            <i className="fa fa-angle-right fa-2x"></i>
+          </Button>
+        </div>
+        <div
+          className={isMobile ? "d-none" : "scroll-image"}
+          style={{ top: isMobile ? "0" : "70px" }}
+        >
+          <img className="scroll-boy" alt="" src="/assets/images/png/4.png" />
+        </div>
+      </section> -->
