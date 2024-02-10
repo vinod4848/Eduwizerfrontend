@@ -28,6 +28,8 @@ import CandidatePackageScreen from "./Components/PreLogin/CandidatePackageScreen
 import VendorPackageScreen from "./Components/PreLogin/VendorPackageScreen";
 import CounsellerPackageScreen from "./Components/PreLogin/CounsellerPackageScreen";
 import InstitutePackageScreen from "./Components/PreLogin/InstitutePackageScreen";
+import ForgotPassword from "./Components/PreLogin/forgotPassword";
+import SetNewPassword from "./Components/PreLogin/SetNewPassword";
 
 function App() {
   const { loginData } = useSelector((store) => store.dataReducer);
@@ -82,6 +84,8 @@ function App() {
             }
           />
           <Route path="login" exact element={<Login />} />
+          <Route path="forgotPassword" exact element={<ForgotPassword />} />
+          <Route path="setNewPassword/:token" element={<SetNewPassword />} />
           <Route path="register/:type" exact element={<Signup />} />
           <Route path="verifyotp" exact element={<VerfiyOtp />} />
           <Route

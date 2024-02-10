@@ -12,7 +12,12 @@ export function uploadCVAPI(formData) {
 export function login(body) {
   return axios.post("/eduwizer/login", body);
 }
-
+export function forgotPassword(body) {
+  return axios.post("/eduwizer/forgotPassword", body);
+}
+export function setNewPassword(body) {
+  return axios.post("/eduwizer/setNewPassword", body);
+}
 export function signup(body) {
   return axios.post("/eduwizer/signup", body);
 }

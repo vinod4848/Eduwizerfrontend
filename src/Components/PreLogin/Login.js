@@ -221,6 +221,14 @@ const Login = () => {
             </FormControl>
           </div> */}
           <div className="col-12 text-center mt-4">
+            <u
+              className="pointer"
+              onClick={() => navigate("/forgotPassword")}
+            >
+              <a>ForgotPassword</a>
+            </u>
+          </div>
+          <div className="col-12 text-center mt-4">
             Don't have account?{" "}
             <u
               className="pointer"
