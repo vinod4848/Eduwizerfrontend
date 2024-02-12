@@ -398,7 +398,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>First Name</InputLabel>
+                          <InputLabel>First Name*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-firstName"
                             type="text"
@@ -422,7 +422,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Last Name</InputLabel>
+                          <InputLabel>Last Name*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-lastName"
                             type="text"
@@ -442,7 +442,7 @@ const Signup = () => {
                     )}
                     {signupTypeAndFieldsMappings[type].includes("url") && (
                       <div className="col-12 col-md-12 col-lg-6 text-center d-flex align-items-center mt-4">
-                        <Label> Upload Profile</Label>
+                        <Label> Upload Profile*</Label>
                         <UploadFile
                           accept=".png,.jpg,.jpeg,.mp4,.avi,.mov,.wmv,.flv,.webm,.mkv,.ogg,.ogv,.youtube"
                           editData={{
@@ -469,7 +469,7 @@ const Signup = () => {
                     )}
                     {signupTypeAndFieldsMappings[type].includes("resume") && (
                       <div className="col-12 col-md-12 col-lg-6 text-center d-flex align-items-center mt-4">
-                        <Label> Upload Resume</Label>
+                        <Label> Upload Resume*</Label>
                         <UploadFile
                           accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                           editData={{
@@ -509,7 +509,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Username</InputLabel>
+                          <InputLabel>Username*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-username"
                             type="text"
@@ -533,7 +533,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Password</InputLabel>
+                          <InputLabel>Password*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-password"
                             type={showPassword ? "text" : "password"}
@@ -573,7 +573,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Email</InputLabel>
+                          <InputLabel>Email*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-Email"
                             type="text"
@@ -595,7 +595,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Phone Number</InputLabel>
+                          <InputLabel>Phone Number*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-phone"
                             type="text"
@@ -617,7 +617,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Age</InputLabel>
+                          <InputLabel>Age*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-age"
                             type="text"
@@ -641,7 +641,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Experience</InputLabel>
+                          <InputLabel>Experience*</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-experience"
                             type="text"
@@ -665,7 +665,7 @@ const Signup = () => {
                           sx={{ m: 1, width: "36ch" }}
                           variant="outlined"
                         >
-                          <InputLabel>Pin code</InputLabel>
+                          <InputLabel>Pin code *</InputLabel>
                           <OutlinedInput
                             id="outlined-adornment-pincode"
                             type="text"
@@ -700,7 +700,7 @@ const Signup = () => {
                             }}
                             options={countries}
                             renderInput={(params) => (
-                              <TextField {...params} label="Country" />
+                              <TextField {...params} label="Country*" />
                             )}
                           />
                         </FormControl>
@@ -727,7 +727,7 @@ const Signup = () => {
                             }}
                             options={states}
                             renderInput={(params) => (
-                              <TextField {...params} label="State" />
+                              <TextField {...params} label="State *" />
                             )}
                           />
                         </FormControl>
@@ -762,7 +762,7 @@ const Signup = () => {
                             }
                             options={cities}
                             renderInput={(params) => (
-                              <TextField {...params} label="City" />
+                              <TextField {...params} label="City*" />
                             )}
                           />
                           {/* {cities.map((city) => (
@@ -782,7 +782,7 @@ const Signup = () => {
                           variant="outlined"
                         >
                           <InputLabel id="demo-simple-select-label">
-                            Board
+                            Board*
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-label"
@@ -824,7 +824,7 @@ const Signup = () => {
                               ? "Sector/Industry"
                               : type === "counseller"
                               ? "Counseller Type"
-                              : "Preference"}
+                              : "Preference*"}
                           </InputLabel>
                           <Select
                             labelId="demo-simple-select-label"
@@ -836,7 +836,7 @@ const Signup = () => {
                                 ? "Sector/Industry"
                                 : type === "counseller"
                                 ? "Counseller Type"
-                                : "Preference"
+                                : "Preference*"
                             }
                             onChange={handleChange}
                           >
