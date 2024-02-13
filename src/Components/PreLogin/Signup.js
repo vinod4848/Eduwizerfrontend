@@ -237,74 +237,56 @@ const Signup = () => {
   };
 
   const validateTheForm = (values, errors) => {
-    console.log("validation", values, errors);
-    if (!values.firstName) {
-      errors.firstName = "Required";
-    }
-    if (!values.lastName) {
-      errors.lastName = "Required";
-    }
-    if (!values.userName) {
-      errors.userName = "Required";
-    }
-    if (!values.password) {
-      errors.password = "Required";
-    }
-    if (!values.email) {
-      errors.email = "Required";
-    }
-    if (!values.phone) {
-      errors.phone = "Required";
-    }
-    if (!values.pincode) {
-      errors.pincode = "Required";
-    }
-    if (!values.country) {
-      errors.country = "Required";
-    }
-    if (!values.state) {
-      errors.state = "Required";
-    }
-    if (!values.city) {
-      errors.city = "Required";
-    }
-    if (!values.url) {
-      errors.url = "Required";
-    }
-    if (!values.resume) {
-      errors.resume = "Required";
+    const requiredFields = {
+      firstName: "FirstName",
+      lastName: "LastName",
+      userName: "Username",
+      password: "Password",
+      email: "Email",
+      phone: "Phone",
+      pincode: "Pincode",
+      country: "Country",
+      state: "State",
+      city: "City",
+      url: "Profile Image",
+      resume: "Resume",
+      preference: "Preference",
+    };
+
+    for (const field in requiredFields) {
+      if (!values[field]) {
+        errors[field] = `${requiredFields[field]} Required`;
+      }
     }
 
-    if (!values.preference) {
-      errors.preference = "Required";
-    }
     switch (type) {
       case "candidate":
       case "counseller":
         if (!values.age) {
-          errors.age = "Required";
+          errors.age = "Age Required";
         }
         if (!values.experience) {
-          errors.experience = "Required";
+          errors.experience = "Experience Required";
         }
         if (!values.board) {
-          errors.board = "Required";
+          errors.board = "Board Required";
         }
         break;
       case "student":
         if (!values.age) {
-          errors.age = "Required";
+          errors.age = "Age Required";
         }
         break;
       case "vendor":
       case "institute":
         if (!values.board) {
-          errors.board = "Required";
+          errors.board = "Board Required";
         }
         break;
       default:
         break;
     }
+
     return errors;
   };
 
@@ -453,6 +435,13 @@ const Signup = () => {
                             if (file.size < 1024 * 1024) {
                               setFieldValue("url", url);
                               setFieldValue("fileType", fileType);
+
+                              // Show SweetAlert on successful upload
+                              Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Your URL has been uploaded successfully!",
+                              });
                             }
                           }}
                         />
@@ -488,6 +477,11 @@ const Signup = () => {
                             ) {
                               setFieldValue("resume", resume);
                               setFieldValue("fileType", fileType);
+                              Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Your resume has been uploaded successfully!",
+                              });
                             }
                           }}
                         />
