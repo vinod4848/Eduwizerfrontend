@@ -208,7 +208,6 @@ const Signup = () => {
   const callRegister = async (values, setSubmitting) => {
     try {
       setLoading(true);
-      // values.country = 'India' //! dont use this
       const signupResp = await signup(values);
       const userId = signupResp?.data?.data?._id;
       console.log("signupResp :>> ", signupResp, userId);
@@ -351,7 +350,6 @@ const Signup = () => {
             }}
             onSubmit={(values, { setSubmitting }) => {
               setSubmitting(true);
-              console.log("vivekkk", values);
               values.userType = type;
               callRegister(values, setSubmitting);
               // setSubmitting(false)
@@ -435,12 +433,10 @@ const Signup = () => {
                             if (file.size < 1024 * 1024) {
                               setFieldValue("url", url);
                               setFieldValue("fileType", fileType);
-
-                              // Show SweetAlert on successful upload
                               Swal.fire({
                                 icon: "success",
                                 title: "Success",
-                                text: "Your URL has been uploaded successfully!",
+                                text: "Your profile photo  has been uploaded successfully!",
                               });
                             }
                           }}
@@ -872,23 +868,6 @@ const Signup = () => {
             )}
           </Formik>
         </div>
-        {/* <div className="col-12 text-center">
-          <div className="col-12">OR</div>
-          <div className="col-12 text-center mt-3">
-            <FormControl sx={{ m: 1, width: "36ch" }} variant="outlined">
-              <Button variant="outlined" size="large">
-                Sign up with Google
-              </Button>
-            </FormControl>
-          </div>
-          <div className="col-12 text-center mt-1">
-            <FormControl sx={{ m: 1, width: "36ch" }} variant="outlined">
-              <Button variant="outlined" size="large">
-                Sign up with Facebook
-              </Button>
-            </FormControl>
-          </div>
-        </div> */}
       </div>
       <CustomLoadingAnimation isLoading={loading} />
     </>

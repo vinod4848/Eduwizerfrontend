@@ -1,24 +1,25 @@
 import "./index.css";
-
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "react-bootstrap";
-import Subscribe from "../../Components/Subscribe";
 import { contactUs } from "../../Services/api";
-import { toast } from "react-toastify";
 import CustomToast from "../Common/CustomToast";
+import Subscribe from "../../Components/Subscribe";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
 const ContactUs = () => {
   const [name, setName] = useState("");
-  const ref = useRef(null);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  console.log(message, "msgg")
+  const ref = useRef(null);
   const [width, setWidth] = useState(window.innerWidth);
 
-  function handleWindowSizeChange() {
+  const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
-  }
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
@@ -27,35 +28,53 @@ const ContactUs = () => {
   }, []);
 
   const isMobile = width <= 768;
-
-  const sendContactUsMessage = async () => {
-    if(name.length===0){
-      alert("enter your name")
-    }else if(email.length===0){
-      alert("enter your email")
-    }else if(phone.length===0){
-      alert("enter your phone number")
-    }else if(message.length===0){
-      alert("enter a message")
+  const validateForm = () => {
+    if (name.length === 0) {
+      alert("Enter your name");
+      return false;
+    } else if (email.length === 0) {
+      alert("Enter your email");
+      return false;
+    } else if (phone.length === 0) {
+      alert("Enter your phone number");
+      return false;
+    } else if (message.length === 0) {
+      alert("Enter a message");
+      return false;
     }
-    console.log("send message");
+    return true;
+  };
+  const sendContactUsMessage = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
     await contactUs({
       name,
       email,
       phone,
       message,
     });
+
     setName("");
     setEmail("");
     setPhone("");
     setMessage("");
-    toast(
-      <CustomToast
-        type="success"
-        message={`Thank you.
-    Our team will get back to you shortly`}
-      />
-    );
+
+    MySwal.fire({
+      icon: "success",
+      title: "Thank you for contacting us.",
+      html: (
+        <div>
+          <CustomToast
+            type="success"
+            message="Our team will get back to you shortly"
+          />
+        </div>
+      ),
+      showConfirmButton: false,
+      timer: 8000,
+    });
   };
 
   return (
@@ -89,30 +108,33 @@ const ContactUs = () => {
         </div>
         <div className="col-md-6 col-sm-12 text-end">
           <img
+            alt=""
             src="/assets/images/png/contact-us.png"
             style={{ width: "100%" }}
           ></img>
         </div>
       </section>
-
       <section className="other-ways">
         <h2 className="other-ways-head">Other Ways To Reach Out</h2>
         <div className="other-ways-content">
           <div className="other-way">
-            <div className="text">
-              <div>
-                <a href="tel:+919167780061">+91 9167780061</a>
-              </div>
-              <div>
-                <a href="tel:+919167864061">+91 9167864061</a>
-              </div>
+            <div className="text" style={{ marginTop: "-30px" }}>
+              <a href="tel:+919167780061" target="_blank" rel="noreferrer">
+                +91 9167780061
+              </a>
             </div>
-            <img className="icon" alt="" src="/assets/images/svg/phone.svg" />
+            <div className="text" style={{ marginTop: "-30px" }}>
+              <a href="tel:+919167864061" target="_blank" rel="noreferrer">
+                 +91 9167864061
+              </a>
+            </div>
+            <img
+              className="icon"
+              alt=""
+              src="/assets/images/svg/phone.svg"
+              style={{ width: "20px", height: "20px" }}
+            />
           </div>
-          {/* <div className="other-way">
-            <div className="text">+91 123456789</div>
-            <img className="icon" alt="" src="/assets/images/svg/phone.svg" />
-          </div> */}
           <div className="other-way">
             <div className="text">
               <div>
@@ -127,10 +149,16 @@ const ContactUs = () => {
                 <a href="mailto:ceo@eduwizer.biz">ceo@eduwizer.biz</a>
               </div>
             </div>
-            <img className="icon" alt="" src="/assets/images/svg/email.svg" />
+            <img
+              className="icon"
+              alt=""
+              src="/assets/images/svg/email.svg"
+              style={{ width: "25px", height: "25px" }}
+            />
           </div>
+
           <div className="other-way">
-            <div className="text">
+            <div className="text" style={{ marginTop: "-30px" }}>
               <a
                 href="https://www.eduwizer.com/"
                 target="_blank"
@@ -139,11 +167,17 @@ const ContactUs = () => {
                 www.eduwizer.com
               </a>
             </div>
-            <img className="icon" alt="" src="/assets/images/png/website.png" />
+            <img
+              className="icon"
+              alt=""
+              src="/assets/images/png/website.png"
+              style={{ width: "20px", height: "20px" }}
+            />
           </div>
           <div className="other-way">
-            <div className="text" style={{color: '#1c115d'}}>
-              Enam Sambhav, C-20, G Block Rd, G Block BKC, Bandra Kurla Complex, Bandra Eat, Mumbai. Maharashtra 400051
+            <div className="text" style={{ color: "#1c115d" }}>
+              Enam Sambhav, C-20, G Block Rd, G Block BKC, Bandra Kurla Complex,
+              Bandra Eat, Mumbai. Maharashtra 400051
             </div>
             {/* <img className="icon" alt="" src="/assets/images/png/website.png" /> */}
           </div>
@@ -164,9 +198,6 @@ const ContactUs = () => {
               src="/assets/images/svg/facebook.svg"
             />
           </a>
-
-          {/* <img className="icon" alt="" src="/assets/images/svg/youtube.svg" />
-          <img className="icon" alt="" src="/assets/images/svg/twitter.svg" /> */}
           <a
             href="https://www.linkedin.com/in/dr-nikkie-grover-37bb5521/"
             target="_blank"
@@ -191,9 +222,7 @@ const ContactUs = () => {
           </a>
         </div>
       </section>
-
       <Subscribe bg={false} subHead={false}></Subscribe>
-
       <div className="message-us no-side-gap mb-2 py-4" ref={ref}>
         <div className="message-us-container">
           <div className="message-head row m-0">
@@ -244,7 +273,11 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="message-head row m-0">
-            <Button variant="warning" type = "submit" onClick={() => sendContactUsMessage()}>
+            <Button
+              variant="warning"
+              type="submit"
+              onClick={() => sendContactUsMessage()}
+            >
               <div className="btn-text p-1.5">Send Message</div>
             </Button>
           </div>

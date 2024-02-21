@@ -7,12 +7,15 @@ import { store } from "../Redux";
 // The timeout is set to 10s. If the request takes longer than
 // that then the request will be aborted.
 const customAxios = axios.create({
-  baseURL: "http://localhost:8081/",
+  // baseURL: "http://localhost:8081/",
   // baseURL: 'http://65.2.161.63:3000',
   // baseURL: `${process.env.REACT_APP_API_URL}`,
   //baseURL: `http://localhost:8081`,
   //baseURL: `http://65.0.31.159:3000`,
-  // baseURL: `https://eduwizer.com/api`,
+  // baseURL: `https://eduwizer.com/api/`,
+  baseURL: `https://eduwizer.com`,
+  // baseURL: "http://43.205.237.123",
+
   timeout: 30000,
 });
 
